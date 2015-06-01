@@ -1,0 +1,6 @@
+package_name("game");
+recipe_for("executable", fun(rcp){
+    print("Recipe callback for ${rcp.type()}");
+    rcp.set_name("game");
+    rcp.uses("sfml");
+});
