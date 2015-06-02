@@ -1,38 +1,58 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include <iostream>
+using namespace std;
+
+class Game
+{
+    public:
+        Game()
+        {
+            //Bal aanmaken om te tekenen
+            bal_.setRadius(40);
+            bal_.setPosition(400-40, 300-40);
+            bal_.setFillColor(sf::Color::Cyan);
+        }
+        void reageer_op_gebeurtenissen()
+        {
+            //Kijken of we moeten afsluiten
+            sf::Event gebeurtenis;
+            while (window_.pollEvent(gebeurtenis))
+            {
+                if (gebeurtenis.type == sf::Event::Closed)
+                    window_.close();
+            }
+        }
+        void teken_scherm()
+        {
+            //Wis het scherm
+            window_.clear();
+            //Teken de bal
+            window_.draw(bal_);
+            //Wissel de schermbuffers: dan pas zie je het resultaat
+            window_.display();
+        }
+        bool venster_is_open()
+        {
+            return window_.isOpen();
+        }
+
+    private:
+        sf::RenderWindow window_{sf::VideoMode(800, 600), "Lander zijn game"};
+        sf::CircleShape bal_;
+};
 
 int main()
 {
     std::cout << "Hello world." << std::endl;
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Lander zijn game");
+    Game game;
 
-    //Bal aanmaken om te tekenen
-    sf::CircleShape bal;
-    bal.setRadius(40);
-    bal.setPosition(400-40, 300-40);
-    bal.setFillColor(sf::Color::Cyan);
-
-    while (window.isOpen())
+    while (game.venster_is_open())
     {
-        //Kijken of we moeten afsluiten
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+        game.reageer_op_gebeurtenissen();
 
-        //Teken het scherm
-        {
-            //Wis het scherm
-            window.clear();
-            //Teken de bal
-            window.draw(bal);
-            //Wissel de schermbuffers: dan pas zie je het resultaat
-            window.display();
-        }
+        game.teken_scherm();
     }
     return 0;
 }
