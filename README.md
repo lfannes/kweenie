@@ -1,2 +1,3 @@
 # kweenie
-is een github met heelveel testen programmas van lfannes
+
+Kweenie is een git repo met heel veel testprogramma's van lfannes.
