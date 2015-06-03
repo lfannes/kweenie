@@ -3,16 +3,24 @@
 #include <iostream>
 using namespace std;
 
-class Game
+class Player
 {
     public:
-        Game()
+        Player()
         {
             //Bal aanmaken om te tekenen
             bal_.setRadius(40);
             bal_.setPosition(400-40, 300-40);
             bal_.setFillColor(sf::Color::Cyan);
         }
+
+        sf::CircleShape bal_;
+    private:
+};
+
+class Game
+{
+    public:
         void reageer_op_gebeurtenissen()
         {
             //Kijken of we moeten afsluiten
@@ -28,7 +36,7 @@ class Game
             //Wis het scherm
             window_.clear();
             //Teken de bal
-            window_.draw(bal_);
+            window_.draw(player_.bal_);
             //Wissel de schermbuffers: dan pas zie je het resultaat
             window_.display();
         }
@@ -39,7 +47,7 @@ class Game
 
     private:
         sf::RenderWindow window_{sf::VideoMode(800, 600), "Lander zijn game"};
-        sf::CircleShape bal_;
+        Player player_;
 };
 
 int main()
