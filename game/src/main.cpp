@@ -1,6 +1,8 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 #include <iostream>
+#include <chrono>
+#include <thread>
 using namespace std;
 
 class Player
@@ -24,6 +26,13 @@ class Player
             window.draw(hoofd_);
             window.draw(linker_oog_);
             window.draw(rechter_oog_);
+        }
+
+        void move(int x, int y)
+        {
+            hoofd_.move(x,y);
+            linker_oog_.move(x,y);
+            rechter_oog_.move(x,y);
         }
 
     private:
@@ -60,14 +69,23 @@ class Game
             //Wissel de schermbuffers: dan pas zie je het resultaat
             window_.display();
         }
+        void update()
+        {
+            if (aantal_moves_ < 300)
+            {
+                player_.move(1,0);
+                ++aantal_moves_;
+            }
+        }
         bool venster_is_open()
         {
             return window_.isOpen();
         }
 
     private:
-        sf::RenderWindow window_{sf::VideoMode(800, 600), "Lander zijn game"};
+        sf::RenderWindow window_{sf::VideoMode(1600, 1200), "Lander zijn game"};
         Player player_;
+        int aantal_moves_ = 0;
 };
 
 int main()
@@ -81,6 +99,10 @@ int main()
         game.reageer_op_gebeurtenissen();
 
         game.teken_scherm();
+
+        game.update();
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
     return 0;
 }
