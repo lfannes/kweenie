@@ -19,10 +19,29 @@ class Player
             //Rechter oog aanmaken
             setRadius_Color_(rechter_oog_, 20, sf::Color::Red);
             rechter_oog_.setPosition(300, 300);
+            zwarte_balk_.setSize(sf::Vector2f(400, 200));
+            zwarte_balk_.setPosition(300, 220);
+            zwarte_balk_.setFillColor(sf::Color::Black);
+            //Laad font
+            if (font_.loadFromFile("GoodDog.otf"))
+            {
+            	cout << "Font OK" << endl;
+            }
+            else
+            {
+            	cout << "Font FAILED" << endl;
+            }
+            play_.setString("Play");
+            play_.setFont(font_);
+            play_.setCharacterSize(200);
+            play_.setPosition(300, 180);
+            play_.setColor(sf::Color::Green);
         }
 
         void draw_on(sf::RenderWindow &window)
         {
+            window.draw(play_);
+            window.draw(zwarte_balk_);
             window.draw(hoofd_);
             window.draw(linker_oog_);
             window.draw(rechter_oog_);
@@ -30,6 +49,7 @@ class Player
 
         void move(int x, int y)
         {
+        	zwarte_balk_.move(x,y);
             hoofd_.move(x,y);
             linker_oog_.move(x,y);
             rechter_oog_.move(x,y);
@@ -45,6 +65,9 @@ class Player
         sf::CircleShape hoofd_;
         sf::CircleShape linker_oog_;
         sf::CircleShape rechter_oog_;
+        sf::RectangleShape zwarte_balk_;
+        sf::Text play_;
+        sf::Font font_;
 };
 
 class Game
@@ -71,7 +94,7 @@ class Game
         }
         void update()
         {
-            if (aantal_moves_ < 300)
+            if (aantal_moves_ < 500)
             {
                 player_.move(1,0);
                 ++aantal_moves_;
