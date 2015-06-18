@@ -11,16 +11,16 @@ class Player
         Player()
         {
             //Bal aanmaken om te tekenen
-            setRadius_Color_(hoofd_, 100, sf::Color::Cyan);
-            hoofd_.setPosition(250, 320);
+            setRadius_Color_(hoofd_, 50, sf::Color::Cyan);
+            hoofd_.setPosition(125, 160);
             //Linker oog aanmaken
-            setRadius_Color_(linker_oog_, 20, sf::Color::Red);
-            linker_oog_.setPosition(200, 300);
+            setRadius_Color_(linker_oog_, 10, sf::Color::Red);
+            linker_oog_.setPosition(100, 150);
             //Rechter oog aanmaken
-            setRadius_Color_(rechter_oog_, 20, sf::Color::Red);
-            rechter_oog_.setPosition(300, 300);
-            zwarte_balk_.setSize(sf::Vector2f(400, 200));
-            zwarte_balk_.setPosition(300, 220);
+            setRadius_Color_(rechter_oog_, 10, sf::Color::Red);
+            rechter_oog_.setPosition(150, 150);
+            zwarte_balk_.setSize(sf::Vector2f(220, 120));
+            zwarte_balk_.setPosition(140, 110);
             zwarte_balk_.setFillColor(sf::Color::Black);
             //Laad font
             if (font_.loadFromFile("GoodDog.otf"))
@@ -33,9 +33,12 @@ class Player
             }
             play_.setString("Play");
             play_.setFont(font_);
-            play_.setCharacterSize(200);
-            play_.setPosition(300, 180);
+            play_.setCharacterSize(100);
+            play_.setPosition(150, 90);
             play_.setColor(sf::Color::Green);
+        	mond_.setSize(sf::Vector2f(40, 20));
+        	mond_.setPosition(105, 170);
+        	mond_.setFillColor(sf::Color::Black);
         }
 
         void draw_on(sf::RenderWindow &window)
@@ -43,6 +46,7 @@ class Player
             window.draw(play_);
             window.draw(zwarte_balk_);
             window.draw(hoofd_);
+            window.draw(mond_);
             window.draw(linker_oog_);
             window.draw(rechter_oog_);
         }
@@ -51,6 +55,7 @@ class Player
         {
         	zwarte_balk_.move(x,y);
             hoofd_.move(x,y);
+            mond_.move(x,y);
             linker_oog_.move(x,y);
             rechter_oog_.move(x,y);
         }
@@ -68,6 +73,7 @@ class Player
         sf::RectangleShape zwarte_balk_;
         sf::Text play_;
         sf::Font font_;
+        sf::RectangleShape mond_;
 };
 
 class Game
@@ -94,7 +100,7 @@ class Game
         }
         void update()
         {
-            if (aantal_moves_ < 500)
+            if (aantal_moves_ < 250)
             {
                 player_.move(1,0);
                 ++aantal_moves_;
@@ -106,7 +112,7 @@ class Game
         }
 
     private:
-        sf::RenderWindow window_{sf::VideoMode(1600, 1200), "Lander zijn game"};
+        sf::RenderWindow window_{sf::VideoMode(800, 600), "Lander zijn game"};
         Player player_;
         int aantal_moves_ = 0;
 };
