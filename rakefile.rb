@@ -11,3 +11,8 @@ task :ster do
 	sh "g++ ster.cpp -o ster"
 	sh "./ster"
 end
+
+task :functie do
+	sh "g++ functie.cpp -o functie"
+	sh "./functie"
+end
