@@ -16,3 +16,8 @@ task :functie do
 	sh "g++ functie.cpp -o functie"
 	sh "./functie"
 end
+
+task :som do
+	sh "g++ som.cpp -o som"
+	sh "./som"
+end
