@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript is awesome</title>
+</head>
+<body>
+ <script>
+ function Js()
+ {
+ 	
+ 
+ 	var firstname = prompt("What is your first name?");
+    
+    var lowerString = firstname.toLowerCase();
+    var	firstCharacter = lowerString[0];
+    var firstCharacterUpper = firstCharacter.toUpperCase();
+    var restOfstring = lowerString.slice(1);
+    var Endfirstname = firstCharacterUpper + restOfstring;
+ 	
+ 	console.log(alert("Hello "+Endfirstname));
+ 
+ 	var lastname = prompt("What is your last name?");
+    
+    var lowerStringw = lastname.toLowerCase();
+    var	firstCharacterw = lowerStringw[0];
+    var firstCharacterUpperw = firstCharacterw.toUpperCase();
+    var restOfstringw = lowerStringw.slice(1);
+    var Endlastname = firstCharacterUpperw + restOfstringw;
+ 	
+ 	console.log(alert("Hello "+Endlastname));
+ 	
+ 	var space = " ";
+ 	var alles = Endfirstname + space + Endlastname;
+
+ 
+ 	alert('Hello '+alles);
+ }
+ </script>
+<button type=button onclick="Js()">Start the game!</button>
+
+</body>
+</html>
