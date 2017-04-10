@@ -4,8 +4,12 @@
 
 USING_NS_CC;
 
+int Score = 0;
+
 Bird::Bird(cocos2d::Layer *layer)
 {
+	Score++;
+
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();	
 
@@ -28,12 +32,12 @@ void Bird::Fall()
 	if (true == isFalling)
 	{
 		flappyBird->setPositionX(visibleSize.width / 2 + origin.x);
-		flappyBird->setPositionY(flappyBird->getPositionY() - (BIRD_FALLING_SPEED * visibleSize.height));
+		flappyBird->setPositionY(flappyBird->getPositionY() - 2*(BIRD_FALLING_SPEED * visibleSize.height));
 	}
 	else
 	{
 		flappyBird->setPositionX(visibleSize.width / 2 + origin.x);
-		flappyBird->setPositionY(flappyBird->getPositionY() + (BIRD_FALLING_SPEED * visibleSize.height));	
+		flappyBird->setPositionY(flappyBird->getPositionY() + 3*(BIRD_FALLING_SPEED * visibleSize.height));	
 	}
 }
 

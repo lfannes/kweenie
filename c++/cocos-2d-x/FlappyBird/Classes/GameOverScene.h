@@ -10,6 +10,10 @@ public:
 
     virtual bool init();
     CREATE_FUNC(GameOverScene);
+
+private:
+	void GoToMainMenuScene(cocos2d::Ref *sender);
+	void GoToGameScene(cocos2d::Ref *sender);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

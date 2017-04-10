@@ -31,6 +31,10 @@ private:
 	Pipe pipe;
 
 	Bird *bird;
+
+	unsigned int score;
+
+	cocos2d::Label *scoreLabel;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

@@ -53,6 +53,7 @@ bool SplashScene::init()
 
 void SplashScene::GoToMainMenuScene(float dt)
 {
+    std::cout << "kak" << std::endl;
     auto scene = MainMenuScene::createScene();
     Director::getInstance()->replaceScene(TransitionFade::create(TRANSITION_TIME, scene));
 }
