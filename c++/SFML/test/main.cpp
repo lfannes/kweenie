@@ -1,4 +1,3 @@
-
 #include <SFML/Graphics.hpp>
 
 int main()
@@ -7,7 +6,7 @@ int main()
     sf::CircleShape shape;
     shape.setRadius(40.f);
     shape.setPosition(100.f, 100.f);
-    shape.setFillColor(sf::Color::Cyan);j km,,
+    shape.setFillColor(sf::Color::Cyan);
     while (window.isOpen())
     {
     sf::Event event;
