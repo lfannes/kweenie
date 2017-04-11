@@ -1,0 +1,10 @@
+recipe("sfml", "exe", fun(r){
+    r.add_source("./", "**.cpp")
+    r.add_header("./", "**.hpp")
+
+    r.add_library("sfml-graphics")
+    r.add_library("sfml-window")
+    r.add_library("sfml-audio")
+    r.add_library("sfml-network")
+    r.add_library("sfml-system")
+})
