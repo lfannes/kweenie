@@ -7,7 +7,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(640, 640), "Lander Application");
 
     sf::Font font;
-    if(!font.loadFromMemory("arial.ttf"))
+    if(!font.loadFromFile("arial.ttf"))
     {
         std::cout << "Font not found" << std::endl;
         return -1;
