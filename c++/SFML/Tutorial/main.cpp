@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <string>
 
@@ -6,8 +7,18 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(640, 640), "Lander Application");
 
+    sf::SoundBuffer buffer;
+    if(!buffer.loadFromFile("Resources/cat.wav"))
+    {
+        std::cout << "Font not found" << std::endl;
+    }
+
+    sf::Sound sound;
+    sound.setBuffer(buffer);
+    sound.play();
+
     sf::Font font;
-    if(!font.loadFromFile("arial.ttf"))
+    if(!font.loadFromFile("Resources/arial.ttf"))
     {
         std::cout << "Font not found" << std::endl;
         return -1;

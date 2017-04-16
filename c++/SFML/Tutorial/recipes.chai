@@ -26,4 +26,6 @@ recipe("sfml", "exe", fun(r){
     r.add_library("FLAC")
     r.add_library("ogg")
     r.add_library("vorbis")
+    r.add_library("vorbisfile")
+    r.add_library("vorbisenc")
 })
