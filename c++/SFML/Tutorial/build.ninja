@@ -7,7 +7,7 @@ defines = -DNDEBUG
 include_paths = -I "$$gubg/include" -I "./"
 lflags = -m64
 library_paths = -L"$$gubg/lib"
-libraries = -lsfml-window -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-system -lxcb -lxcb-randr -lxcb-image -ludev -ljpeg -lGL -lGLU -lX11 -lX11-xcb -lXrandr -lpthread -lopenal -lfreetype
+libraries = -lsfml-window -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-system -lxcb -lxcb-randr -lxcb-image -ludev -ljpeg -lGL -lGLU -lX11 -lX11-xcb -lXrandr -lpthread -lopenal -lfreetype -lFLAC -logg -lvorbis
 rule compile
   command = $compiler -c -MD -MF $out.d $cflags $defines -o $out $in $include_paths
   depfile = $out.d
