@@ -1,0 +1,23 @@
+compiler = g++
+linker = g++
+delete = rm -f
+
+cflags = -m64
+defines = -DNDEBUG
+include_paths = -I "./"
+lflags = -m64
+libraries = -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-system -lsfml-window
+rule compile
+  command = $compiler -c -MD -MF $out.d $cflags $defines -o $out $in $include_paths
+  depfile = $out.d
+rule link
+  command = $linker $lflags -o $out $in $libraries
+
+build .cook/x64/release/./main.cpp.obj: compile ./main.cpp
+build sfml.exe: link $
+    .cook/x64/release/./main.cpp.obj
+
+rule clean
+  command = ninja -t clean
+build clean: clean
+default sfml.exe

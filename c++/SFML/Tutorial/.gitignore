@@ -1,0 +1,5 @@
+main
+sfml.exe
+.cook/
+.ninja_deps
+.ninja_log
