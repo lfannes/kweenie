@@ -5,19 +5,20 @@
 
 using namespace std;
 
-class Kaart
+class Card
 {
 public:
-	Kaart(int x_, int y_, int id_)
-		: x(x_), y(y_), id(id_)
+	Card(string n_, int x_, int y_, int id_)
+		: x(x_), y(y_), id(id_), n(n_)
 		{
-
+			cout << "The card are succes loaded in." << endl;
+			cout << str() << endl;
 		}
 
 	string str() const
 	{
 		ostringstream oss;
-		oss << "Kaart eigenschappen\n" "positie x: " << x << "\t" << "positie y: " << y << "\n" << "id: " << id << endl;
+		oss << "\nCard specifications\n" << "name: " << n << "\nposition x: " << x << "\t" << "position y: " << y << "\n" << "id: " << id << "\n" << upAnsw() << endl;
 		return oss.str();
 	}
 
@@ -32,32 +33,46 @@ public:
 		y = y_;
 	}
 
-	bool equal(const Kaart &other)
+	bool equal(const Card &other)
 	{
 		if (id == other.id)
 		{
-			cout << "The cards are not different" << endl;
+			cout << "\nCard " << id <<  " are not different with card " << other.id << endl;
 			return true;
 		}
 		else
 		{
-			cout << "The cards are different" << endl;
+			cout << "\nCards" << other.id << " are different with " << other.id << endl;
 			return false;
 		}
+	}
+
+	string upAnsw() const
+	{
+		if (up_ == true)
+			return "The card lights up.";
+		else
+			return "The card lights down.";
+	}
+
+	void turn()
+	{
+		up_ = !up_;
+		cout << "\n" << n << " card is turning.\n" << upAnsw() << endl;
 	}
 
 	int x;
 	int y;
 	int id;
+	string n;
+	bool up_ = false;
 };
 
 int main()
 {
-	Kaart kaart1(3, 5, 8);
-	Kaart kaart2(5, 8, 2);
-	Kaart other();
-	kaart1.print();
-	kaart2.print();
-	cin.get();
-	kaart1.equal(kaart2);
+	Card card1("Smiley Poop", 3, 5, 8);
+	Card card2("Smiley Poop", 5, 8, 8);
+	Card other();
+	card1.turn();
+	card1.equal(card2);
 }
