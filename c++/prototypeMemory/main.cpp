@@ -142,6 +142,7 @@ string play()
 				cout << "You have selected the same cards!\n" << endl;
 				play();
 			}
+			Card &ca = (selc1 == 1 ? card1 : card2);
 			
 	}
 	else if (prompt == "controle")

@@ -10,7 +10,7 @@ int main()
     sf::SoundBuffer buffer;
     if(!buffer.loadFromFile("Resources/cat.wav"))
     {
-        std::cout << "Font not found" << std::endl;
+        std::cout << "SOund not found" << std::endl;
     }
 
     sf::Sound sound;
@@ -18,7 +18,7 @@ int main()
     sound.play();
 
     sf::Font font;
-    if(!font.loadFromFile("Resources/arial.ttf"))
+    if(!font.loadFromFile("Resources/Dancing in the Rainbow.ttf"))
     {
         std::cout << "Font not found" << std::endl;
         return -1;

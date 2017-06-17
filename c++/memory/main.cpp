@@ -79,16 +79,22 @@ int main()
 {
     cout << ">> Memory starting" << endl;
 
-    Board board(3);
+    int score = 0;
+    int x = 6;
+
+    Board board(x);
+    board.shuffle();
     board.shuffle();
 
     board.print();
 
-    while (true)
+    while (score < x)
     {
         cout << "Specify the cards to turn" << endl;
         unsigned int a, b;
         cin >> a >> b;
+        a--;
+        b--;
         if (a == b)
         {
             cout << "These cards are the same" << endl;
@@ -109,6 +115,8 @@ int main()
                 if (ca->equal(*cb))
                 {
                     cout << "Yes, I found a match" << endl;
+                    score++;
+                    cout << "Your score is: " << score << endl;
                 }
                 else
                 {
