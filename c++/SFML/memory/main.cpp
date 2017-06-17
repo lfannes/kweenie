@@ -59,12 +59,15 @@ int main()
                     switch (menu.GetPressedItem())
                     {
                         case 0:
-                            cout << "Play button has beeb pressed" << endl;
+                            cout << "Play button has been pressed" << endl;
+                            break;
                         case 1:
                             cout << "Options button has been pressed" << endl;
+                            break;
                         case 2:
                             cout << "Exit button has been pressed" << endl;
                             window.close();
+                            break;
                     }
                     break;
                 }
@@ -79,7 +82,6 @@ int main()
 
     menu.draw(window);
 
-    window.draw(backgroundImage);
     window.display();
     }
     
