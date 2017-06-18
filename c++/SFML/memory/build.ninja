@@ -14,11 +14,13 @@ rule compile
 rule link
   command = $linker $lflags -o $out $in $library_paths $libraries
 
-build .cook/sfml#exe/x64/release/./Menu.cpp.obj: compile ./Menu.cpp
+build .cook/sfml#exe/x64/release/./game.cpp.obj: compile ./game.cpp
 build .cook/sfml#exe/x64/release/./main.cpp.obj: compile ./main.cpp
+build .cook/sfml#exe/x64/release/./menu.cpp.obj: compile ./menu.cpp
 build sfml.exe: link $
-    .cook/sfml#exe/x64/release/./Menu.cpp.obj $
-    .cook/sfml#exe/x64/release/./main.cpp.obj
+    .cook/sfml#exe/x64/release/./game.cpp.obj $
+    .cook/sfml#exe/x64/release/./main.cpp.obj $
+    .cook/sfml#exe/x64/release/./menu.cpp.obj
 
 rule clean
   command = ninja -t clean
