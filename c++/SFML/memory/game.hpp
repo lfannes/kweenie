@@ -14,6 +14,8 @@ public:
 	void process();
 	void update();
 	void draw();
+	void play();
+	void options();
 
 	void old();
 
@@ -23,5 +25,8 @@ private:
  	sf::RenderWindow window_;
  	sf::Text text_;
  	sf::Font font_;
+ 	sf::Texture texture_;
+ 	sf::Sprite sprite_;
  	Menu menu_;
+ 	bool menuIsActive_ = true;
 };

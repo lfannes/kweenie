@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-	string file = "test.txt";
+	string file = "tet.txt";
 
 	ofstream inFile;
 	inFile.open(file);
@@ -19,7 +19,7 @@ int main()
 
 	if (outFile.fail())
 	{
-		cout << "Fail not found!" << endl;
+		cout << "File not found!" << endl;
 		return -1;
 	}
 
